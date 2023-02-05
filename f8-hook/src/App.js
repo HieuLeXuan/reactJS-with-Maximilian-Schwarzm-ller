@@ -1,22 +1,20 @@
 import { useState } from "react";
 import "./App.css";
-import UserEffect from "./components/UseEffect/UseEffect";
+import UserEffect2 from "./components/UseEffect/UseEffect2";
+import UseReducer from "./components/UseReducer/UseReducer";
 
 import TodoList from "./components/UseState/TodoList";
 
 function App() {
-  const [toggle, setToggle] = useState(false);
-
-  const mountHandler = () => {
-    setToggle(!toggle);
-  };
+  const [show, setShow] = useState(false);
 
   return (
-    <>
-      <button onClick={mountHandler}>Mount</button>
+    <div style={{ margin: 20 }}>
+      <button onClick={() => setShow(!show)}>Toggle</button>
       {/* <TodoList />  */}
-      {toggle && <UserEffect />}
-    </>
+      {/* {show && <UserEffect2 />} */}
+      <UseReducer />
+    </div>
   );
 }
 

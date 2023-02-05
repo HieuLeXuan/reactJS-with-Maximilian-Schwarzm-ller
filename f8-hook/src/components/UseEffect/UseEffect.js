@@ -7,13 +7,29 @@ const UserEffect = () => {
   const [posts, setPosts] = useState([]);
   const [type, setType] = useState("posts");
 
+  // useEffect with DOM element
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${type}`)
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((posts) => {
         setPosts(posts);
       });
   }, [type]);
+
+  useEffect(() => {
+    const handlerScroll = () => {
+      setShowGoToTop(window.scrollY >= 200);
+    };
+
+    window.addEventListener("scroll", handlerScroll);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("scroll", handlerScroll);
+    };
+  }, []);
 
   return (
     <div style={{ margin: 20 }}>
@@ -37,6 +53,17 @@ const UserEffect = () => {
           <li key={post.id}>{post.title || post.name}</li>
         ))}
       </ul>
+      {showGoToTop && (
+        <button
+          style={{
+            position: "fixed",
+            right: 20,
+            bottom: 20,
+          }}
+        >
+          Go To Top
+        </button>
+      )}
     </div>
   );
 };
