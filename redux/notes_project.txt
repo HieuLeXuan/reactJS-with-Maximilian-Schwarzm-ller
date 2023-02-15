@@ -1,0 +1,23 @@
+'PHOTO APP'
+
+- app đơn giảnn quản lý hình ảnh yêu thích, được lựa chon từ https://picsum.photos/
+- crud operator
+- gồm có 2 trang:
+    - home listing + view + delete
+    - addedit dùng để tạo mới sửa thông tin của một photo
+- một photo gồm : title, categoryId, imageUrl
+
++ công nghệ sử dụng
+- reactjs
+- redux (redux toolkit)
+- form management: formik
+- routing: react router
+- ui lib: reactstrap
+- redux-persist
+
++ bạn học được gì trong dự án
+- tổ chức folder, files trong thực tế.
+- sử dụng redux tốt hơn với redux toolkit.
+- biết cách tạo các custom field trong 'formik'.
+- thiết kế routing trong react app.
+- sử dụng một thư vien ui bên ngoài làm cho lẹ.
